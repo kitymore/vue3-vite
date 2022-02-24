@@ -23,6 +23,7 @@
 -   [x] 全屏切换
 -   [x] 国际化
 -   [x] 按钮组切换查询
+-   [x] 筛选组件，多选，单选，菜单，导航...组件封装
 ## Customize configuration
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
