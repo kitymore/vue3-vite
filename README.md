@@ -14,16 +14,23 @@
 -   [x] Dashboard
 -   [x] 表格二次封装查询
 -   [x] Tab 选项卡
--   [x] json自动化配置表单
+-   [x] Tags 导航切换
+-   [x] json自动化解析配置表单
 -   [x] 图表 :echarts:
 -   [x] 可拖拽模态窗
--   [x] 图片拖拽/裁剪上传
+-   [x] excel文件上传下载功能封装
 -   [x] 404 / 403
 -   [x] 三级菜单
 -   [x] 全屏切换
--   [x] 国际化
+-   [x] 国际化切换功能
 -   [x] 按钮组切换查询
--   [x] 筛选组件，多选，单选，菜单，导航...组件封装
+-   [x] 服务请求库封装
+-   [x] 页面容器组件
+-   [x] PDF预览
+-   [x] 筛选组件，多选，单选，菜单，导航...组件二次封装
+-   [x] 图层树
+-   [x] 常用正则验证
+-   [x] 时间处理库
 ## Customize configuration
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
