@@ -10,17 +10,27 @@
         <div class="logo">风险后台管理系统</div>
         <div class="header-right">
             <div class="header-user-con">
-                <div class="language" style="margin-right: 20px;" @click="changeLanguage">
-                    <span v-if="local==='zhCn'">中</span>
-                    <span v-else>英</span>
+                <div class="setting headerIcon"  @click="setingFun">
+                     <el-tooltip effect="dark" :content="'常用配置'" placement="bottom">
+                         <el-icon style="vertical-align: middle;" color="#fff"><setting /></el-icon>
+                    </el-tooltip>
                 </div>
-                <div class="fullscreen" style="margin-right: 20px;" @click="fullscreen">
-                    <el-icon style="vertical-align: middle;" color="#fff" v-if="!isfullScreenShow"><crop /></el-icon>
-                    <el-icon style="vertical-align: middle;" color="#fff" v-else><full-screen /></el-icon>
+                <div class="language headerIcon"  @click="changeLanguage">
+                     <el-tooltip effect="dark" :content="'中英文切换'" placement="bottom">
+                        <span v-if="local==='zhCn'">中</span>
+                        <span v-else>英</span>
+                    </el-tooltip>
+                </div>
+                <div class="fullscreen headerIcon"  @click="fullscreen">
+                    <el-tooltip effect="dark" :content="'全屏切换'" placement="bottom">
+                        <el-icon style="vertical-align: middle;" color="#fff" v-if="!isfullScreenShow"><crop /></el-icon>
+                        <el-icon style="vertical-align: middle;" color="#fff" v-else><full-screen /></el-icon>
                      
+                    </el-tooltip>
+                   
                 </div>
                 <!-- 消息中心 -->
-                <div class="btn-bell">
+                <div class="btn-bell headerIcon">
                     <el-tooltip effect="dark" :content="message?`有${message}条未读消息`:`消息中心`" placement="bottom">
                         <router-link to="/tabs">
                             <!-- <i class="el-icon-bell"></i> -->
@@ -53,14 +63,21 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
-import {  Bell, FullScreen,Connection, Crop} from '@element-plus/icons-vue'
+import {  Bell, FullScreen,Connection,Setting, Crop} from '@element-plus/icons-vue'
 import screenfull from 'screenfull';
 import {useLanguageStore} from '@/stores/language'
+import {themeStore } from '@/stores/theme'
+
 import { useI18n } from "vue-i18n";
 const username = localStorage.getItem("ms_username");
 const message = 2;
 const isfullScreenShow = ref(true)
 const store =useLanguageStore();
+const setStore = themeStore()
+const setingFun = ()=>{
+    const isDraw = !setStore.getDrawer
+    setStore.setDrawer(isDraw)
+}
 const i18n = useI18n();
 const changeLanguage= ()=>{
   i18n.locale.value = store.getLanguage==='zhCn'?'en':'zh';
@@ -121,6 +138,10 @@ const handleCommand = (command:string) => {
     
 }
 .header-right {
+    .headerIcon{
+        margin-right: 20px;
+        cursor: pointer;
+    }
    .language{
        font-size: 16px;
        cursor: pointer;

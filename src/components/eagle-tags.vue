@@ -3,6 +3,16 @@
 <template>
    <div class="tags" v-if="showTags">
         <div  class="tag-ul">
+            <!-- <el-tag
+                v-for="tag in tagsList"
+                :key="tag.title"
+                class="mx-1"
+                closable
+                :type="tag.type"
+                  effect="plain"
+            >
+                {{ tag.title }}
+            </el-tag> -->
             <div class="tags-li" v-for="(item,index) in tagsList" :class="{'active': isActive(item.path)}" :key="index">
                 <router-link :to="item.path" class="tags-li-title">{{item.title}}</router-link>
                 <span class="tags-li-icon" @click="closeTags(index)" >

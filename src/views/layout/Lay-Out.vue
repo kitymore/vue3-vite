@@ -20,6 +20,7 @@
         </el-main>
       </el-container>
     </el-container>
+    <EagleSeeting></EagleSeeting>
 </div>
  
 </template>
@@ -28,7 +29,7 @@ import { ElConfigProvider } from 'element-plus'
 import SlideHeader from '@/components/slide-header.vue';
 import EagleMenu from '@/components/eagle-menu.vue'
 import EagleTags from '@/components/eagle-tags.vue'
-
+import EagleSeeting from '@/components/eagle-seting.vue';
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 import en from 'element-plus/lib/locale/lang/en'
 import {useLanguageStore} from '@/stores/language'

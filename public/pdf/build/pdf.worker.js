@@ -66344,7 +66344,7 @@ var OperatorList = /*#__PURE__*/function () {
           case _util.OPS.paintInlineImageXObjectGroup:
           case _util.OPS.paintImageMaskXObject:
             var arg = argsArray[i][0];
-            ;
+            
 
             if (!arg.cached) {
               transfers.push(arg.data.buffer);

@@ -1,9 +1,18 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useRoute } from "vue-router";
-
+import {themeStore } from '@/stores/theme'
+const store = themeStore()
  const route = useRoute();
-
+const bgcolor = computed(() => {
+    return store.getMenuBar;
+});
+const textColor = computed(() => {
+    return store.getMenuBarColor;
+});
+const isUniqueOpened = computed(() => {
+    return store.getIsUniqueOpened;
+});
 const onRoutes = computed(() => {
     return route.path;
 });
@@ -620,10 +629,10 @@ const handleSelect = (key: string, keyPath: string[]) => {
     <el-menu
     :default-active="onRoutes"
     class="sidebar-el-menu"
-     background-color="#324157"
-      text-color="#bfcbd9" active-text-color="#20a0ff"
+     :background-color="bgcolor"
+      :text-color="textColor" active-text-color="#20a0ff"
     @select="handleSelect"
-     unique-opened
+    :unique-opened="isUniqueOpened"
     router
   >
    <template v-for="item in items">
