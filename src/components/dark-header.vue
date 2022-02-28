@@ -12,7 +12,7 @@
             <div class="header-user-con">
                 <div class="setting headerIcon"  @click="setingFun">
                      <el-tooltip effect="dark" :content="'常用配置'" placement="bottom">
-                         <el-icon style="vertical-align: middle;" color="#97a8be"><setting /></el-icon>
+                         <el-icon style="vertical-align: middle;" color="#fff"><setting /></el-icon>
                     </el-tooltip>
                 </div>
                 <div class="language headerIcon"  @click="changeLanguage">
@@ -23,8 +23,8 @@
                 </div>
                 <div class="fullscreen headerIcon"  @click="fullscreen">
                     <el-tooltip effect="dark" :content="'全屏切换'" placement="bottom">
-                        <el-icon style="vertical-align: middle;" color="#97a8be" v-if="!isfullScreenShow"><crop /></el-icon>
-                        <el-icon style="vertical-align: middle;" color="#97a8be" v-else><full-screen /></el-icon>
+                        <el-icon style="vertical-align: middle;" color="#fff" v-if="!isfullScreenShow"><crop /></el-icon>
+                        <el-icon style="vertical-align: middle;" color="#fff" v-else><full-screen /></el-icon>
                      
                     </el-tooltip>
                    
@@ -34,7 +34,7 @@
                     <el-tooltip effect="dark" :content="message?`有${message}条未读消息`:`消息中心`" placement="bottom">
                         <router-link to="/tabs">
                             <!-- <i class="el-icon-bell"></i> -->
-                            <el-icon style="vertical-align: middle;" color="#97a8be"><bell /></el-icon>
+                            <el-icon style="vertical-align: middle;" color="#fff"><bell /></el-icon>
                         </router-link>
                     </el-tooltip>
                     <span class="btn-bell-badge" v-if="message"></span>
@@ -122,7 +122,7 @@ const handleCommand = (command:string) => {
     box-sizing: border-box;
     width: 100%;
     font-size: 22px;
-    color: #97a8be;
+    color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -176,10 +176,10 @@ const handleCommand = (command:string) => {
     height: 8px;
     border-radius: 4px;
     background: #f56c6c;
-    color: #97a8be;
+    color: #fff;
 }
 .btn-bell .el-icon-bell {
-    color: #97a8be;
+    color: #fff;
 }
 .user-name {
     margin-left: 10px;
@@ -194,7 +194,7 @@ const handleCommand = (command:string) => {
     border-radius: 50%;
 }
 .el-dropdown-link {
-   color: #97a8be;
+    color: #fff;
     cursor: pointer;
 }
 .el-dropdown-menu__item {

@@ -4,6 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    DarkHeader: typeof import('./src/components/dark-header.vue')['default']
     EagleCard: typeof import('./src/components/eagle-card.vue')['default']
     EagleCheckbox: typeof import('./src/components/eagle-checkbox.vue')['default']
     'EagleCheckbox copy': typeof import('./src/components/eagle-checkbox copy.vue')['default']
@@ -79,6 +80,7 @@ declare module 'vue' {
     IconSupport: typeof import('./src/components/icons/IconSupport.vue')['default']
     IconTooling: typeof import('./src/components/icons/IconTooling.vue')['default']
     SlideHeader: typeof import('./src/components/slide-header.vue')['default']
+    'SlideHeader copy': typeof import('./src/components/slide-header copy.vue')['default']
     SvgIcon: typeof import('./src/components/svgIcon/index.vue')['default']
     TheWelcome: typeof import('./src/components/TheWelcome.vue')['default']
     WelcomeItem: typeof import('./src/components/WelcomeItem.vue')['default']

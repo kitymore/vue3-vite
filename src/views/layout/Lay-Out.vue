@@ -3,7 +3,7 @@
   <!-- 布局一 -->
 <el-container v-if="layout==='defaults'">
     <el-header>
-      <SlideHeader></SlideHeader>
+      <DarkHeader></DarkHeader>
     </el-header>
     <el-container  style="height: 50vh; width:100%;">
       <el-aside width="200px">
@@ -13,7 +13,7 @@
       </el-aside>
       <el-main>
           <el-scrollbar >
-            <EagleTags></EagleTags>
+            <!-- <EagleTags></EagleTags> -->
             <el-config-provider :locale="localLanguage">
               <router-view ></router-view>
           </el-config-provider>
@@ -34,7 +34,7 @@
       <el-header> <SlideHeader></SlideHeader></el-header>
       <el-main>
           <el-scrollbar >
-          <EagleTags></EagleTags>
+          <!-- <EagleTags></EagleTags> -->
           <el-config-provider :locale="localLanguage">
             <router-view ></router-view>
         </el-config-provider>
@@ -50,8 +50,9 @@
 <script setup lang="ts">
 import { ElConfigProvider } from 'element-plus'
 import SlideHeader from '@/components/slide-header.vue';
+import DarkHeader from '@/components/dark-header.vue'
 import EagleMenu from '@/components/eagle-menu.vue'
-import EagleTags from '@/components/eagle-tags.vue'
+// import EagleTags from '@/components/eagle-tags.vue'
 import EagleSeeting from '@/components/eagle-seting.vue';
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 import en from 'element-plus/lib/locale/lang/en'
@@ -81,7 +82,8 @@ const layout:any =  computed(()=>{
   height: 100vh;
 }
 .common-layout .el-header {
- background-color: #242f42;
+  /* background-color: #242f42; */
+  background: #fff;
   line-height: 60px;
 }
 .common-layout .el-aside {
