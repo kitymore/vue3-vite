@@ -1,6 +1,6 @@
 
 <template>
- <EagleContainer>
+ <EagleContainer bg>
    <!-- type="border-card" -->
       <EagleTabs  :columns="col" v-model="activeName"  @update:model-value="updateCurrent"></EagleTabs>
  </EagleContainer>

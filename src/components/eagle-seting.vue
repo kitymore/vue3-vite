@@ -10,7 +10,7 @@
         size="260px"
        @close="onDrawerClose"
     >
-         <el-scrollbar height="400px">
+         <el-scrollbar >
              <el-divider>界面显示</el-divider>
              <div class="settingItem">
                  <div class="settingText">水印开启</div>
@@ -43,6 +43,12 @@
                     <el-switch v-model="isUniqueOpened" class="ml-2"  />
                  </div>
              </div>
+              <el-divider>布局切换</el-divider>
+              <div class="layoutContent" >
+                   <div class="item" v-for="item in layouts" :key="item.type" @click="changeLayout(item)">
+                      <img :src="item.src" alt="">
+                   </div>
+              </div>
         </el-scrollbar>
       
     </el-drawer>
@@ -52,6 +58,20 @@
 import { computed, ref, useAttrs  } from "vue";
 import {themeStore } from '@/stores/theme'
 import Watermark from '@/utils/wartermark';
+import layout1 from '@/assets/img/layout_common.png'
+import layout2 from '@/assets/img/layout_default.png'
+
+const layouts:any = [
+   {
+    src:layout2,
+    type:'defaults'
+  },
+  {
+    src:layout1,
+    type:'classic'
+  },
+ 
+]
 const store = themeStore()
 const drawer = computed(()=>{
     return store.getDrawer
@@ -70,7 +90,9 @@ const waterFlag = computed({
   }
 })
 const attrs = useAttrs()
-
+const changeLayout = (item:any)=>{
+   store.setLoyout(item.type)
+}
 const waterText  = computed({
   get: () => {
     return store.getWartermarkText
@@ -105,11 +127,25 @@ const isUniqueOpened = computed({
      store.setIsUniqueOpened(val)
   }
 })
+const layout = computed({
+  get: () => {
+    return store.getLayout
+  },
+  set: (val) => {
+     store.setLoyout(val)
+  }
+})
 </script>
 <style scoped lang="scss">
 .eaglesetting {
     font-size: 14px;
     color: #333;
+    .layoutContent{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
    .settingItem{
        display: flex;
        align-items: center;

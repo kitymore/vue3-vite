@@ -1,3 +1,3 @@
 import dashboard from './enterprise'
-
-export default [...dashboard];
+import danger from './danger'
+export default [...dashboard, ...danger];

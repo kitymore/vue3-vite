@@ -136,6 +136,7 @@ export const themeStore = defineStore({
     getMenuBar:(state) => state.menuBar,
     getMenuBarColor:(state) => state.menuBarColor,
     getIsUniqueOpened:(state) => state.isUniqueOpened,
+    getLayout:(state) => state.layout,
   },
   actions: {
     setDrawer(data:boolean){
@@ -155,6 +156,9 @@ export const themeStore = defineStore({
     },
     setIsUniqueOpened(state:boolean){
         this.isUniqueOpened = state
-    }
+    },
+    setLoyout(layout:string){
+      this.layout = layout
+   },
   }
 })

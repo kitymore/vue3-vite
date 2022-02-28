@@ -56,6 +56,14 @@ export const dashboardRoute =[
         },
         component: () => import (/* webpackChunkName: "403" */ '@/views/modules/basicInfo/archives.vue')
     },
+    {
+        path: '/iconlist',
+        name: 'iconlist',
+        meta: {
+            title: '第三方图标展示'
+        },
+        component: () => import (/* webpackChunkName: "403" */ '@/views/modules/icon/icon.vue')
+    },
 ] 
   
 export default dashboardRoute;

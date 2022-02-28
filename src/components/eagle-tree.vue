@@ -4,7 +4,7 @@
      <!-- :icon="'Delete'" -->
       <el-tree
       :data="dataSource"
-      :icon="FolderOpened"
+     
       node-key="id"
       v-bind="{...attrs}"
       default-expand-all

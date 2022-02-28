@@ -1,5 +1,5 @@
 <template>
-<EagleContainer>
+<EagleContainer bg>
  <EagleTabs  :columns="col" v-model="activeName"  @update:model-value="updateCurrent"></EagleTabs>
 </EagleContainer>
   

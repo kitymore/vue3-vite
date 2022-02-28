@@ -42,11 +42,11 @@ export default defineConfig({
     //TODO
     // 设置代理，根据我们项目实际情况配置
     proxy: {
-      '/api/mock': {
-        target: 'http://localhost:8000/',
+      '/dev-api': {
+        target: 'http://139.196.18.102:8020/',
         changeOrigin: true,
         secure: false,
-        rewrite: (path) => path.replace(/^\/api/, '')
+        rewrite: (path) => path.replace(/^\/dev-api/, '')
       }
     }
   }

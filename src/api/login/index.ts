@@ -1,4 +1,14 @@
 import request  from '@/utils/request';
+import {loginApi} from '@/api'
+
+export function login(data:any){
+  return request({
+      url: loginApi,
+      method: 'post',
+      data
+    });
+}
+
 /**
  * @description 获取验证码
  */
@@ -20,13 +30,6 @@ import request  from '@/utils/request';
     });
   }
 
-  export function login(data:API.LoginParams){
-    return request({
-        url: 'account/login',
-        method: 'post',
-        data
-      });
-  }
 
 /**
  * 本地mock测试

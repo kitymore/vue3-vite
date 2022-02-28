@@ -1,26 +1,49 @@
 <template>
 <div class="common-layout">
-  <el-container >
-      <el-header>
-        <SlideHeader></SlideHeader>
-      </el-header>
-      <el-container  style="height: 50vh; width:100%;">
-        <el-aside width="200px">
-          <el-scrollbar>
-             <EagleMenu></EagleMenu>
+  <!-- 布局一 -->
+<el-container v-if="layout==='defaults'">
+    <el-header>
+      <SlideHeader></SlideHeader>
+    </el-header>
+    <el-container  style="height: 50vh; width:100%;">
+      <el-aside width="200px">
+        <el-scrollbar>
+            <EagleMenu></EagleMenu>
+        </el-scrollbar>
+      </el-aside>
+      <el-main>
+          <el-scrollbar >
+            <EagleTags></EagleTags>
+            <el-config-provider :locale="localLanguage">
+              <router-view ></router-view>
+          </el-config-provider>
           </el-scrollbar>
-        </el-aside>
-        <el-main>
-           <el-scrollbar >
-             <EagleTags></EagleTags>
-             <el-config-provider :locale="localLanguage">
-                <router-view ></router-view>
-            </el-config-provider>
-           </el-scrollbar>
-        </el-main>
-      </el-container>
+      </el-main>
     </el-container>
-    <EagleSeeting></EagleSeeting>
+</el-container>
+
+
+<el-container v-else>
+  <el-container  >
+    <el-aside width="200px">
+      <el-scrollbar>
+          <EagleMenu></EagleMenu>
+      </el-scrollbar>
+    </el-aside>
+      <el-container>
+      <el-header> <SlideHeader></SlideHeader></el-header>
+      <el-main>
+          <el-scrollbar >
+          <EagleTags></EagleTags>
+          <el-config-provider :locale="localLanguage">
+            <router-view ></router-view>
+        </el-config-provider>
+        </el-scrollbar>
+      </el-main>
+    </el-container>
+  </el-container>
+</el-container>
+<EagleSeeting></EagleSeeting>
 </div>
  
 </template>
@@ -34,6 +57,8 @@ import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 import en from 'element-plus/lib/locale/lang/en'
 import {useLanguageStore} from '@/stores/language'
 import {ref, computed} from 'vue'
+import {themeStore } from '@/stores/theme'
+const themestores = themeStore()
 const store = useLanguageStore()
 // eslint-disable-next-line vue/return-in-computed-property
 const localLanguage = computed(() => {
@@ -44,7 +69,9 @@ const localLanguage = computed(() => {
           return zhCn
       }
 })
-
+const layout:any =  computed(()=>{
+  return themestores.getLayout
+})
 </script>
 
 <style>

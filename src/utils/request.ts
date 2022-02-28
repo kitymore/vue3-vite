@@ -33,7 +33,7 @@ request.interceptors.response.use(
      * 根据项目实际情况来对 response 和 error 做处理
      * 这里对 response 和 error 不做任何处理，直接返回
      */
-    return response
+    return response.data
   },
   (error) => {
     if (error.response && error.response.data) {

@@ -12,7 +12,7 @@
           <!-- <el-breadcrumb-item>拖拽弹框</el-breadcrumb-item> -->
       </el-breadcrumb>
     </div>
-    <div class="bodyConteing">
+    <div class="bodyConteing" :style="{'background': props.bg? '#fff':''}">
        <slot ></slot>
     </div>
  </div>
@@ -24,6 +24,12 @@ import { navStore } from '@/stores/system';
 import {ref} from 'vue'
 const userNavStore = navStore() 
 const crumbs:any = ref([...userNavStore.currentPath])
+const props = defineProps({
+    bg: {
+      type: Boolean,
+      default: false,
+    },
+});
 </script>
 <style lang="scss" scoped>
 .eagleContainer{
@@ -34,15 +40,19 @@ const crumbs:any = ref([...userNavStore.currentPath])
     display: flex;
     align-content: center;
     padding-left: 10px;
+    margin: 10px 0;
   }
   .bodyConteing{
-    background: #fff;
-    border: 1px solid #e1e1e1;
-    margin: 0 10px;
+    // background: #fff;
+    // border: 1px solid #e1e1e1;
+    // margin: 0 10px;
     padding: 0 10px;
     padding-bottom: 10px;
     margin-bottom: 10px;
-   
+  }
+  .bgColor{
+    background: #fff;
+    border: 1px solid #e1e1e1;
   }
   .titleWrap{
     display: flex;
